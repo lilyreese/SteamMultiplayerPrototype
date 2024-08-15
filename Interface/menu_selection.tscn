@@ -1,0 +1,62 @@
+[gd_scene load_steps=2 format=3 uid="uid://hgu7r7djbljt"]
+
+[ext_resource type="Script" path="res://Interface/menu_selection.gd" id="1_nd8jm"]
+
+[node name="MenuSelection" type="Control" node_paths=PackedStringArray("exit", "host_game", "join_game", "lobby_name", "host_container")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+script = ExtResource("1_nd8jm")
+exit = NodePath("VBoxContainer/ExitGameButton")
+host_game = NodePath("VBoxContainer/HostContainer/HostGameButton")
+join_game = NodePath("VBoxContainer/JoinGameButton")
+lobby_name = NodePath("VBoxContainer/HostContainer/LobbyNameLine")
+host_container = NodePath("VBoxContainer/HostContainer")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+offset_left = 140.0
+offset_top = 449.0
+offset_right = 317.0
+offset_bottom = 675.0
+
+[node name="HostContainer" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="HostGameButton" type="Button" parent="VBoxContainer/HostContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+focus_mode = 0
+text = "Host Game"
+
+[node name="Control" type="Control" parent="VBoxContainer/HostContainer"]
+layout_mode = 2
+
+[node name="LobbyNameLine" type="LineEdit" parent="VBoxContainer/HostContainer"]
+clip_contents = true
+custom_minimum_size = Vector2(75, 0)
+layout_mode = 2
+placeholder_text = "Name"
+
+[node name="JoinGameButton" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+focus_mode = 0
+text = "Join Game"
+
+[node name="OptionsButton" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+focus_mode = 0
+text = "Options"
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer"]
+custom_minimum_size = Vector2(0, 30)
+layout_mode = 2
+
+[node name="ExitGameButton" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+focus_mode = 0
+text = "Exit"

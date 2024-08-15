@@ -1,0 +1,37 @@
+[gd_scene load_steps=3 format=3 uid="uid://caxiivxi7g3qs"]
+
+[ext_resource type="Script" path="res://Interface/player_steam_info.gd" id="1_vsvmv"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_60tje"]
+font_size = 32
+
+[node name="PlayerSteamInfo" type="ColorRect" node_paths=PackedStringArray("player_avatar", "player_name_label")]
+custom_minimum_size = Vector2(200, 64)
+offset_left = 25.0
+offset_top = 25.0
+offset_right = 325.0
+offset_bottom = 89.0
+color = Color(0.233925, 0.233925, 0.233925, 1)
+script = ExtResource("1_vsvmv")
+player_avatar = NodePath("Container/PlayerAvatar")
+player_name_label = NodePath("Container/PlayerName")
+
+[node name="Container" type="HBoxContainer" parent="."]
+custom_minimum_size = Vector2(100, 64)
+layout_mode = 0
+offset_right = 286.0
+offset_bottom = 64.0
+
+[node name="PlayerAvatar" type="TextureRect" parent="Container"]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+expand_mode = 2
+
+[node name="PlayerName" type="Label" parent="Container"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "
+"
+label_settings = SubResource("LabelSettings_60tje")
+horizontal_alignment = 1
+justification_flags = 3

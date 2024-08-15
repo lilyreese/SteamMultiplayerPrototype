@@ -1,0 +1,77 @@
+[gd_scene load_steps=2 format=3 uid="uid://bred55kyaedpc"]
+
+[ext_resource type="Script" path="res://Interface/join_lobby.gd" id="1_0elj2"]
+
+[node name="JoinLobby" type="Control" node_paths=PackedStringArray("lobby_list_container", "name_filter", "refresh", "back")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+script = ExtResource("1_0elj2")
+lobby_list_container = NodePath("HBoxContainer/MarginContainer/VBoxContainer/ScrollContainer/LobbyListContainer")
+name_filter = NodePath("HBoxContainer/MarginContainer/VBoxContainer/HBoxContainer/NameFilterLine")
+refresh = NodePath("HBoxContainer/MarginContainer/VBoxContainer/HBoxContainer/RefreshButton")
+back = NodePath("HBoxContainer/Control/CenterContainer/BackButton")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Control" type="Control" parent="HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+mouse_filter = 1
+
+[node name="CenterContainer" type="CenterContainer" parent="HBoxContainer/Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="BackButton" type="Button" parent="HBoxContainer/Control/CenterContainer"]
+layout_mode = 2
+text = "Back
+"
+alignment = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="ColorRect" type="ColorRect" parent="HBoxContainer/MarginContainer"]
+layout_mode = 2
+color = Color(0, 0, 0, 0.52549)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer/MarginContainer"]
+custom_minimum_size = Vector2(960, 0)
+layout_mode = 2
+
+[node name="ScrollContainer" type="ScrollContainer" parent="HBoxContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="LobbyListContainer" type="VBoxContainer" parent="HBoxContainer/MarginContainer/VBoxContainer/ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="HBoxContainer" type="HBoxContainer" parent="HBoxContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="NameFilterLine" type="LineEdit" parent="HBoxContainer/MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="RefreshButton" type="Button" parent="HBoxContainer/MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+focus_mode = 0
+text = "Refresh"
+alignment = 0

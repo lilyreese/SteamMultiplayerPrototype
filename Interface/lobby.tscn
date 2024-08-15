@@ -1,0 +1,61 @@
+[gd_scene load_steps=5 format=3 uid="uid://c80pvkq26ujk4"]
+
+[ext_resource type="Script" path="res://Interface/lobby.gd" id="1_vrp2y"]
+[ext_resource type="PackedScene" uid="uid://caxiivxi7g3qs" path="res://Interface/player_steam_info.tscn" id="2_n6sst"]
+[ext_resource type="PackedScene" uid="uid://b5xdp60j5kwev" path="res://Interface/chat_box.tscn" id="3_gvh0w"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_wx8lj"]
+font_size = 52
+
+[node name="Lobby" type="Control" node_paths=PackedStringArray("player_steam_info_container", "lobby_name_label", "disconnect_button")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_vrp2y")
+player_steam_info_container = NodePath("PlayerSteamInfoContainer")
+lobby_name_label = NodePath("LobbyNameLabel")
+disconnect_button = NodePath("DisconnectButton")
+
+[node name="PlayerSteamInfoContainer" type="VBoxContainer" parent="."]
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 47.0
+offset_top = -223.0
+offset_right = 347.0
+offset_bottom = -23.0
+grow_vertical = 2
+
+[node name="PlayerSteamInfo" parent="PlayerSteamInfoContainer" instance=ExtResource("2_n6sst")]
+layout_mode = 2
+
+[node name="PlayerSteamInfo2" parent="PlayerSteamInfoContainer" instance=ExtResource("2_n6sst")]
+layout_mode = 2
+
+[node name="PlayerSteamInfo3" parent="PlayerSteamInfoContainer" instance=ExtResource("2_n6sst")]
+layout_mode = 2
+
+[node name="LobbyNameLabel" type="Label" parent="."]
+layout_mode = 0
+offset_left = 54.0
+offset_top = 183.0
+offset_right = 359.0
+offset_bottom = 255.0
+text = "LobbyNome"
+label_settings = SubResource("LabelSettings_wx8lj")
+
+[node name="DisconnectButton" type="Button" parent="."]
+layout_mode = 0
+offset_left = 63.0
+offset_top = 968.0
+offset_right = 157.0
+offset_bottom = 999.0
+text = "Disconnect"
+
+[node name="ChatBox" parent="." instance=ExtResource("3_gvh0w")]
+layout_mode = 1
