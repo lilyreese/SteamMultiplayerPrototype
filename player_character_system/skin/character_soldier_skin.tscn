@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://b486pg0xi8rfe"]
+
+[ext_resource type="PackedScene" uid="uid://br753dcp3nmfv" path="res://player_character_system/skin/character-soldier.glb" id="1_0fw72"]
+[ext_resource type="Script" path="res://player_character_system/skin/player_skin.gd" id="2_5jy71"]
+
+[node name="character-soldier2" node_paths=PackedStringArray("animation_player") instance=ExtResource("1_0fw72")]
+script = ExtResource("2_5jy71")
+animation_player = NodePath("AnimationPlayer")
+
+[node name="character-soldier" parent="." index="0"]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 0)
+
+[node name="Skeleton3D" parent="character-soldier" index="0"]
+bones/4/rotation = Quaternion(0, 0, -0.382683, 0.92388)
+bones/5/rotation = Quaternion(0, 0, 0.382683, 0.92388)
+
+[node name="AnimationPlayer" parent="." index="1"]
+autoplay = "idle"

@@ -11,15 +11,15 @@ signal lobby_chat_message_received(user_name:String, message:String)
 
 var steam_interface:Steam_Interface = Steam_Interface.new()
 
-func _ready():
+func _ready() -> void:
 	_set_up_signals()
 	steam_interface.initialize_steam_connection()
 	
 func _set_up_signals() -> void:
-	steam_interface.player_info_updated.connect(func(_name, _avatar): steam_player_info_updated.emit(_name, _avatar))
-	steam_interface.steam_lobby_members_changed.connect(func(lobby_members): steam_lobby_members_changed.emit(lobby_members))
-	steam_interface.steam_lobby_joined.connect(func(_name, _id): steam_lobby_joined.emit(_name,_id))
-	steam_interface.lobby_chat_message_received.connect(func(user_name, message): lobby_chat_message_received.emit(user_name, message))
+	steam_interface.player_info_updated.connect(func(_name:String, _avatar:ImageTexture) -> void: steam_player_info_updated.emit(_name, _avatar))
+	steam_interface.steam_lobby_members_changed.connect(func(lobby_members:Dictionary) -> void: steam_lobby_members_changed.emit(lobby_members))
+	steam_interface.steam_lobby_joined.connect(func(_name:String, _id:int) -> void: steam_lobby_joined.emit(_name,_id))
+	steam_interface.lobby_chat_message_received.connect(func(user_name:String, message:String) -> void: lobby_chat_message_received.emit(user_name, message))
 
 #region Lobby
 func create_lobby_as_host(lobby_name:String) -> void:

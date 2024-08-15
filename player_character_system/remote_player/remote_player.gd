@@ -1,0 +1,1 @@
+class_name Remote_Player extends Node3D
